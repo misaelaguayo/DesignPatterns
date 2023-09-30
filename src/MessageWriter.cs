@@ -1,7 +1,11 @@
-public class MessageWriter
+namespace DependencyInjection.Example
+
 {
-    public void Write(string message)
+    public class MessageWriter : IMessageWriter
     {
-        Console.WriteLine($"MessageWriter.Write(message :\"{message}\")");
+        public void Write(string message)
+        {
+            Console.WriteLine($"MessageWriter.Write(message :\"{message}\")");
+        }
     }
 }

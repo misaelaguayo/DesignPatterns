@@ -1,8 +1,14 @@
+using DependencyInjection.Example;
 using Microsoft.Extensions.Hosting;
 
-public class Worker : BackgroundService
+public class Worker: BackgroundService
 {
-    private readonly MessageWriter _messageWriter = new MessageWriter();
+    private readonly IMessageWriter _messageWriter;
+
+    public Worker(IMessageWriter messageWriter)
+    {
+        _messageWriter = messageWriter;
+    }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
